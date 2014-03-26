@@ -41,3 +41,10 @@ execute "make ImageMagick" do
 
   action :run
 end
+
+# make symlinks
+%w{montage animate composite convert identify mogrify}.each do |cmdname|
+  link "/usr/local/bin/#{cmdname}" do
+    to "#{node['imagemagick']['prefix']}/bin/#{cmdname}"
+  end
+end
