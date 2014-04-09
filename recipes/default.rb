@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 # install ImageMagick
+# originally from ftp://ftp.kddlabs.co.jp/graphics/ImageMagick/
 basename = "ImageMagick-#{node['imagemagick']['version']}"
 tarball_filename = basename + ".tar.gz"
 tarball_filepath = Chef::Config['file_cache_path'] + '/' + tarball_filename
 
-# we need libpng to read log file
+# we need libpng to read logo file
 %w{libjpeg-turbo libjpeg-turbo-devel libpng-devel}.each do |pkg|
   package pkg do
     action :install
