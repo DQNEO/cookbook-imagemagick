@@ -31,6 +31,7 @@ end
 # (also make and install PerlMagick)
 bash "make and install ImageMagick" do
   cwd Chef::Config['file_cache_path'] + "/" + basename
+  flags '-e'
   code <<-EOH
     ./configure --prefix=#{node['imagemagick']['prefix']} --with-perl=#{node['imagemagick']['with-perl']} --enable-shared --disable-opencl --without-x
     make
