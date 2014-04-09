@@ -17,9 +17,9 @@ cookbook_file tarball_filename do
   path Chef::Config['file_cache_path'] + "/" + tarball_filename
 end
 
-execute "tar xfz ImageMagick" do
+bash "tar xfz ImageMagick" do
   cwd Chef::Config['file_cache_path']
-  command <<-EOH
+  code <<-EOH
     tar xfz #{tarball_filename}
   EOH
 
@@ -39,7 +39,6 @@ bash "make and install ImageMagick" do
   EOH
 
   creates "#{node['imagemagick']['prefix']}/bin/convert"
-
   action :run
 end
 
