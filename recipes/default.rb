@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # install ImageMagick
 # originally from ftp://ftp.kddlabs.co.jp/graphics/ImageMagick/
+
+include_recipe "build-essential"
+
 basename = "ImageMagick-#{node['imagemagick']['version']}"
 tarball_filename = basename + ".tar.gz"
 tarball_filepath = Chef::Config['file_cache_path'] + '/' + tarball_filename
