@@ -19,6 +19,6 @@ berks vendor cookbooks
 |['imagemagick']['prefix']|/opt/ImageMagick|
 |['imagemagick']['version']| 5.20.1|
 |['imagemagick']['version']|'6.8.6-10'|
-|['imagemagick']['with-perl']|'/opt/plenv/shims/perl'|
+|['imagemagick']['with-perl']|'/opt/perl/bin/perl'|
 |['imagemagick']['config_options']|"--enable-shared --disable-openmp --disable-opencl --without-x"|
 
