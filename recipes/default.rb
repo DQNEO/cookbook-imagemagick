@@ -26,8 +26,7 @@ bash "tar xfz ImageMagick" do
     tar xfz #{tarball_filename}
   EOH
 
-  creates Chef::Config['file_cache_path'] + "/" + basename
-  action :run
+  not_if "test -e #{Chef::Config['file_cache_path']}/#{basename}"
 end
 
 # make and install
@@ -41,8 +40,7 @@ bash "make and install ImageMagick" do
     make install
   EOH
 
-  creates "#{node['imagemagick']['prefix']}/bin/convert"
-  action :run
+  not_if "test -x #{node['imagemagick']['prefix']}/bin/convert"
 end
 
 # make symlinks
